@@ -1,0 +1,115 @@
+# @package _group_
+
+common:
+  fp16: false
+  log_format: json
+  log_interval: 200
+  tensorboard_logdir: tblog
+  seed: 1337
+
+checkpoint:
+  no_epoch_checkpoints: true
+  best_checkpoint_metric: wer
+  save_interval_updates: 2500
+
+task:
+  _name: hubert_pretraining
+  data: ???
+  fine_tuning: true
+  label_dir: ???
+  normalize: false  # must be consistent with pre-training
+  labels: ["ltr"]
+  single_target: true
+  embed_dir: None
+  JSD: false
+  spkfield: 1
+
+dataset:
+  num_workers: 4
+  max_tokens: 3200000
+  skip_invalid_size_inputs_valid_test: true
+  validate_interval: 100000
+  validate_interval_updates: 2500
+
+distributed_training:
+  ddp_backend: legacy_ddp
+  distributed_world_size: 2
+
+criterion:
+  _name: ctc
+  zero_infinity: true
+
+optimization:
+  max_update: 80000
+  lr: [0.00003]
+  sentence_avg: true
+  update_freq: [4]
+
+optimizer:
+  _name: adam
+  adam_betas: (0.9,0.98)
+  adam_eps: 1e-08
+
+lr_scheduler:
+  _name: tri_stage
+  phase_ratio: [0.1, 0.4, 0.5]
+  final_lr_scale: 0.05
+
+model:
+  _name: hubert_ctc
+  w2v_path: ???
+  apply_mask: true
+  mask_selection: static
+  mask_length: 10
+  mask_other: 0
+  mask_prob: 0.65
+  mask_channel_selection: static
+  mask_channel_other: 0
+  mask_channel_prob: 0.5
+  mask_channel_length: 64
+  layerdrop: 0.1
+  dropout: 0.0
+  activation_dropout: 0.1
+  attention_dropout: 0.0
+  feature_grad_mult: 0.0
+  freeze_finetune_updates: 0
+  spk_aware: false
+  spk_embed: 256
+  spk_method: cat
+  spk_layers: "0"
+  cat_layers: "0"
+  keep_spk_layers: false
+  init_linear: false
+  ln_after_adapt: false
+  cln: false
+  cln_bias: false
+  cattn: false
+  add_adapter: false
+  adapter_size: 256
+  adapter_act: swish
+  adapter_init_range: 1e-3 
+  adapter_method: standard
+  nspks: 1
+  JSD_layers: 0
+  encoder_layers_finetune: 12
+
+hydra:
+  job:
+    config:
+      override_dirname:
+        kv_sep: '-'
+        item_sep: '__'
+        exclude_keys:
+          - run
+          - task.data
+          - task.label_dir
+          - model.w2v_path
+          - dataset.train_subset
+          - dataset.valid_subset
+          - criterion.wer_kenlm_model
+          - criterion.wer_lexicon
+  run:
+    dir: ???
+  sweep:
+    dir: ???
+    subdir: ${hydra.job.config_name}__${hydra.job.override_dirname}
