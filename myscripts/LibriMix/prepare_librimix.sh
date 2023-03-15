@@ -11,6 +11,7 @@ kaldi_LS_dir=/export/c12/hzili1/tools/kaldi/egs/librispeech/s5/data/
 # Set librimix_dir to Libri2Mix/wav16k/max
 librimix_dir=/export/c12/hzili1/dataset/LibriMix/Libri2Mix/wav16k/max/
 
+# Output directories
 kaldi_dir=datasets/kaldi/LibriMix
 dump_dir=datasets/dump/LibriMix
 fairseq_dir=datasets/fairseq/LibriMix
