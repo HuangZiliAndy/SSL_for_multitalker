@@ -45,3 +45,10 @@ if [ $stage -le 3 ]; then
     python myscripts/data_prep_kaldi.py ${dump_dir}/${split} $fairseq_dir $split $dump_dir/${split}/data
   done
 fi
+
+# Create utterance group data for joint speaker modeling (JSM)
+if [ $stage -le 4 ]; then
+  for split in train-100 dev test; do
+    python myscripts/LibriMix/create_utt_group.py $fairseq_dir $split
+  done
+fi

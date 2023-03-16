@@ -23,6 +23,7 @@ task:
   embed_dir: None
   JSD: false
   spkfield: 1
+  nspks: 1
 
 dataset:
   num_workers: 4

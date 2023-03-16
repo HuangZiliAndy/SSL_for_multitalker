@@ -56,15 +56,23 @@ We offer a few example scripts for training.
 ./train_scripts/LS_wavLM_spk.sh
 
 # Utterance group-based evaluation (wavLM Base+ with speaker embedding)
-./train_scripts/LS_wavLM_spk.sh
+./train_scripts/LS_full_len_wavLM_spk.sh
+
+# Utterance group-based evaluation (wavLM Base+ with speaker embedding + Joint Speaker Modeling (JSM))
+./train_scripts/LS_full_len_wavLM_spk_JSM.sh
 ```
 
 # Evaluation
 
 ``` bash
-Evaluation scripts for utterance-based evaluation and utterance group-based evaluation
-./eval_scripts/LS_decode_viterbi.sh
-./eval_scripts/LS_full_len_decode_viterbi.sh
+# Utterance-based evaluation with and w/o speaker embedding
+./eval_scripts/LS.sh
+
+# Utterance group-based evaluation (wavLM Base+ with speaker embedding)
+./eval_scripts/LS_full_len.sh
+
+# Utterance group-based evaluation (wavLM Base+ with speaker embedding + JSM)
+./eval_scripts/LS_full_len_JSM.sh
 ```
 
 # Citation
