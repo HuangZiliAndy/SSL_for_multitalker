@@ -75,6 +75,13 @@ We offer a few example scripts for training.
 ./eval_scripts/LS_full_len_JSM.sh
 ```
 
+# Pretrained models
+
+[Utterance-based evaluation (wavLM Base+ without speaker embedding)](https://drive.google.com/file/d/1tMARaaR0YmgcJUEDVrnTFfNE2i68uC4W/view?usp=share_link)
+[Utterance-based evaluation (wavLM Base+ with speaker embedding)](https://drive.google.com/file/d/1XcdxeSbWa6cQAfnUmlEg1YeWdndbDQTA/view?usp=share_link)
+[Utterance group-based evaluation (wavLM Base+ with speaker embedding)](https://drive.google.com/file/d/1A3kXrXlyYDZhZVcHr_4NqjIjR4Kd9sgm/view?usp=share_link)
+[wavLM Base+ with speaker embedding + JSM](https://drive.google.com/file/d/1gb85DUNRs5Ep6HjLuVHOKWDka5LhK9KZ/view?usp=share_link)
+
 # Citation
 
 Please cite as:

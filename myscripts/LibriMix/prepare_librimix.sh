@@ -44,4 +44,5 @@ if [ $stage -le 3 ]; then
   for split in train-100 dev test; do
     python myscripts/data_prep_kaldi.py ${dump_dir}/${split} $fairseq_dir $split $dump_dir/${split}/data
   done
+  cp dict.ltr.txt $fairseq_dir/.
 fi
