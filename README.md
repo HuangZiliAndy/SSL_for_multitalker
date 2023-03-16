@@ -1,4 +1,4 @@
-We provide the code and models for our ICASSP paper [Adapting self-supervised models to multi-talker speech recognition using speaker embeddings](https://arxiv.org/abs/2211.00482)
+We provide the code and models for our ICASSP paper [Adapting self-supervised models to multi-talker speech recognition using speaker embeddings](https://arxiv.org/abs/2211.00482).
 
 # Requirements and Installation
 * Python version == 3.7
@@ -39,7 +39,17 @@ ln -s <kaldi_dir>/egs/wsj/s5/utils .
 # tight boundary (utterance-based evaluation)
 ./myscripts/LibriMix/prepare_librimix.sh
 ./myscripts/LibriMix/prepare_librimix_full_len.sh
+
 ```
+
+Extract speaker embeddings for enrollment utterances
+We use 15s speech from LibriVox (not in LibriSpeech) 
+as enrollment utterances
+
+We offer extracted [x-vector](https://drive.google.com/file/d/19eE8OsA3rVauwDcaS7UtMSUnySYXtm3A/view?usp=share_link) embeddings.
+
+Optionally, you can also extract arbitrary speaker embeddings
+from enrollment utterances [LS 15 seconds enrollment](https://drive.google.com/file/d/1AmZQnTUCPW3VHZeYpBzH4fxExi_JBkv3/view?usp=share_link).
 
 # Training
 
@@ -84,6 +94,13 @@ We offer a few example scripts for training.
 [Utterance group-based evaluation (wavLM Base+ with speaker embedding)](https://drive.google.com/file/d/1A3kXrXlyYDZhZVcHr_4NqjIjR4Kd9sgm/view?usp=share_link)
 
 [Utterance group-based evaluation (wavLM Base+ with speaker embedding + JSM)](https://drive.google.com/file/d/1gb85DUNRs5Ep6HjLuVHOKWDka5LhK9KZ/view?usp=share_link)
+
+When you are doing inference using the pretrained model, please first convert the model using
+
+```python
+python myscripts/convert_model.py <model_dir>/checkpoint_last.pt downloads/WavLM-Base+.pt <model_dir>/checkpoint_last_tmp.pt
+mv <model_dir>/checkpoint_last_tmp.pt <model_dir>/checkpoint_last.pt
+```
 
 # Citation
 
