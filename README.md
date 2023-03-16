@@ -83,7 +83,7 @@ We offer a few example scripts for training.
 
 [Utterance group-based evaluation (wavLM Base+ with speaker embedding)](https://drive.google.com/file/d/1A3kXrXlyYDZhZVcHr_4NqjIjR4Kd9sgm/view?usp=share_link)
 
-[wavLM Base+ with speaker embedding + JSM](https://drive.google.com/file/d/1gb85DUNRs5Ep6HjLuVHOKWDka5LhK9KZ/view?usp=share_link)
+[Utterance group-based evaluation (wavLM Base+ with speaker embedding + JSM)](https://drive.google.com/file/d/1gb85DUNRs5Ep6HjLuVHOKWDka5LhK9KZ/view?usp=share_link)
 
 # Citation
 
