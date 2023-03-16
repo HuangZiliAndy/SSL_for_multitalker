@@ -90,7 +90,7 @@ We offer a few example scripts for training.
 
 When you are doing inference using the pretrained model, please first convert the model using
 
-```python
+```bash
 python myscripts/convert_model.py <model_dir>/checkpoint_last.pt downloads/WavLM-Base+.pt <model_dir>/checkpoint_last_tmp.pt
 mv <model_dir>/checkpoint_last_tmp.pt <model_dir>/checkpoint_last.pt
 ```
